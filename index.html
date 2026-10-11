@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>time and date</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: auto;
+            padding: auto;
+            background: black;
+            color: white;
+            font-weight: 900;
+        }
+        .kk{
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 5px solid #38bdf8;
+            margin-top: 100px;
+            padding: 30px;
+            border-top-left-radius: 100px;
+            border-bottom-right-radius: 100px;
+            
+        }
+        h2{
+            font-size: 40px;
+            text-decoration: underline;
+            letter-spacing: 2px;
+            color: #38bdf8;
+            text-align: center;
+        }
+        .btn{
+            font-size:15px;
+           background: none;
+            letter-spacing: 2px;
+            color: #38bdf8;
+            text-align: center;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .btn:hover{
+            font-size: 18px;
+            animation: infinite;
+            background: white;
+            color: black
+            
+        }
+        @media(max-width:600px){
+              .btn{
+            font-size:10px;
+           background: none;
+            letter-spacing: 2px;
+            color: #38bdf8;
+            text-align: center;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .btn:hover{
+            font-size: 12px;
+            animation: infinite;
+            background: white;
+            color: black
+            
+        }
+        }
+
+    </style>
+</head>
+<body>
+   
+     <div class="kk">
+         <audio id="music" src="audio/phonk.mp3" loop></audio>
+         <button class="btn" onclick="playMusic()"> CLICK & ENJOY WITH MUSIC 🎵</button>   
+        <h2>CURRENT TIME, DATE AND DAY</h2>
+    <h1 class="time"></h1>
+    <h1 class="date"></h1>
+    <h1 class="day"></h1>
+    </div>
+    <script>
+        function playMusic() {
+        document.getElementById("music").play();
+    }
+        // time ke liye js
+        var ob=new Date();
+        setInterval(()=>{
+            let x=document.querySelector(".time");
+             ob=new Date();
+        let hours=ob.getHours();
+        let minutes=ob.getMinutes();
+        let seconds=ob.getSeconds();
+        x.textContent=` TIME:-  ${hours}:${minutes}:${seconds}`;
+        },1000);
+        
+
+            // date ke liye js
+            let y=document.querySelector(".date");
+            let dates=ob.getDate();
+            let months=ob.getMonth();
+            let years=ob.getFullYear();
+            let montharray=["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
+            console.log(montharray[months]);
+            y.textContent=`DATE:-  ${dates}-${montharray[months]}-${years}`;
+
+            // day ke liye
+            let z=document.querySelector(".day");
+            let day=ob.getDay();
+            console.log(day);
+            let dayarray=["SUNDAY","MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"];
+            z.textContent =`DAY:- ${dayarray[day]}`;
+        
+    </script>
+</body>
+</html>
